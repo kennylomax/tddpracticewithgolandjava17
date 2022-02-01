@@ -28,7 +28,6 @@ public class BehaviouralTests {
        assertEquals( board, gol.getBoard());
     }
 
-    @Disabled
     @Order(2)    
     @ParameterizedTest(name = "Populating a GOL board of size {0} with \"{1}\" should look like {2}")
 	@CsvSource({
@@ -39,7 +38,8 @@ public class BehaviouralTests {
 	)
 
     void testPopulatingGOLBoards(int edge, String cells, String board){
-        fail("To do");
+        GOL gol = new GOL(edge, cells);
+		assertEquals( board, gol.getBoard());
     }
 
     @Disabled
