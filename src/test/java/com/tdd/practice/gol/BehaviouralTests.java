@@ -56,6 +56,11 @@ public class BehaviouralTests {
 		assertEquals(  board, gol.getBoard() );
 	}   
 
+    /** 
+        mvn test -Dgroups=internal
+        java -jar junit-platform-console-standalone-1.8.0-M1.jar -cp target/test-classes -cp target/classes --scan-classpath   --include-tag=internal
+    */
+
     @Tag("internal")
     @Order(4)    
     @ParameterizedTest(name = "GOL rule: a cell in state {0} with {1} live neighbours -> state {2}")
@@ -119,5 +124,20 @@ X, Y and their Index in Array
 		assertEquals(  i, gol.getIndexForXY(x,y) );
 	}
 	
+
+    @Tag("internal")
+    @Order(6)    
+	@ParameterizedTest(name = "A board with edge {0} po2d should become {1}")
+	@CsvSource({
+		"3, 	'1-2-4\n8-16-32\n64-128-256\n'",
+		}
+	)
+
+	void testPo2(int edge, String board){
+		GOL gol=new GOL( edge );
+		gol.po2d();
+		assertEquals( board, gol.getBoard());
+    }
+
 
 }

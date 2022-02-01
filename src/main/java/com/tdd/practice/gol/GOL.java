@@ -51,5 +51,12 @@ public class GOL {
         return (y % edge) * edge + (x % edge);
     }
 
+    public void po2d(){
+        int c=1;
+        for (int i=0;i<edge*edge;i++){
+            board[i]=c;
+            c=c*2;
+        }
+    }
 
 }
