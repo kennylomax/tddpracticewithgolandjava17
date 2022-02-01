@@ -81,4 +81,43 @@ public class BehaviouralTests {
 		assertEquals(  s2, GOL.applyRuleToCell(s1,n) );
 	}
 
+    @Tag("internal")
+    @Order(5)    
+    @ParameterizedTest(name = "For a board with edge {0}, X,Y ({1},{2}) should be at internal index {3}")
+	@CsvSource({
+/*
+X, Y and their Index in Array
+    0 1 2 
+-------
+0 | 0 1 2
+1 | 3 4 5
+2 | 6 7 8
+*/
+		// Edge, x, y, index
+		"3,0,0, 0",
+		"3,1,1, 4",
+		"3,2,2, 8",
+		// And wrapping around all sides
+		"3, 3,0,0",
+		"3, -1,0,2",
+		"3, 3,1,3",
+		"3, -1,1,5",
+		"3, 3,2,6",
+		"3, -1,2,8",
+		"3, 2,3,2",
+		"3, 0,3,0",
+		"3, 0,-1,6",
+		"3, 2,-1,8",
+		"3, -1,-1,8",	
+		"3, 3, 3,0",	
+		"3, -1, 3,2",	
+		}
+	)
+
+	void testXYtoIndexConversionPerBoard(int edge, int x, int y, int i){	
+		GOL gol = new GOL( edge );	
+		assertEquals(  i, gol.getIndexForXY(x,y) );
+	}
+	
+
 }

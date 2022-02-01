@@ -43,4 +43,13 @@ public class GOL {
         return 0;      
     }
 
+    public int getIndexForXY(int x, int y){
+        while (y<0)
+            y+=edge;
+        while (x<0)
+            x+=edge;   
+        return (y % edge) * edge + (x % edge);
+    }
+
+
 }
