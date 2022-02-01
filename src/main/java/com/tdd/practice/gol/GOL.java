@@ -33,4 +33,14 @@ public class GOL {
         return sb.toString();
     }
 
+    public static int applyRuleToCell( int state1, int liveNeighbours){
+        if(state1==0 && liveNeighbours==3)
+            return 1;  
+        if (state1==1 && liveNeighbours<2)
+            return 0;
+        if (state1==1 && (liveNeighbours==2 || liveNeighbours==3))
+            return 1;
+        return 0;      
+    }
+
 }
