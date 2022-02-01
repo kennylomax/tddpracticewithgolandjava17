@@ -139,5 +139,20 @@ X, Y and their Index in Array
 		assertEquals( board, gol.getBoard());
     }
 
+    @Tag("internal")
+    @Order(7)    
+    @ParameterizedTest(name = "Gol PO2d with edge {0} should result in neighbour sums of {1}")
+	@CsvSource({
+		// Edge, neighbourSums
+		"3, '510-509-507\n503-495-479\n447-383-255\n'"
+		}
+	)
+	void testSumNeighbours(int edge, String sums){	
+		GOL gol = new GOL( edge );	
+		gol.po2d();
+		GOL golSums = gol.sumAllNeigbours();
+		assertEquals( sums , golSums.getBoard() );
+	}
+
 
 }
