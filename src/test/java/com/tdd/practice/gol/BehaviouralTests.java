@@ -1,8 +1,10 @@
 package com.tdd.practice.gol;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.TestMethodOrder;
@@ -22,10 +24,12 @@ public class BehaviouralTests {
 		}
 	)
     public void testFreshGOLBoards( int edge, String board){
-       fail("To do");
+       GOL gol = new GOL(edge);  
+       assertEquals( board, gol.getBoard());
     }
 
-	@Order(2)    
+    @Disabled
+    @Order(2)    
     @ParameterizedTest(name = "Populating a GOL board of size {0} with \"{1}\" should look like {2}")
 	@CsvSource({
         "1, 0, 				'0\n'",
@@ -33,10 +37,12 @@ public class BehaviouralTests {
         "3, 101 010 101,	'1-0-1\n0-1-0\n1-0-1\n'",
         "3, - 010 -,		'0-0-0\n0-1-0\n0-0-0\n'",    }
 	)
-	void testPopulatingGOLBoards(int edge, String cells, String board){
+
+    void testPopulatingGOLBoards(int edge, String cells, String board){
         fail("To do");
     }
 
+    @Disabled
     @Order(3)    
     @ParameterizedTest(name = "A GOL board with {0} should evolve to {1}")
 	@CsvSource({
