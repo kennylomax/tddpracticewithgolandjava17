@@ -76,4 +76,13 @@ public class GOL {
         return sums;
     }
 
+    public GOL evolve(){
+        GOL gol2 = sumAllNeigbours();
+        GOL gol3 = new GOL( edge );
+        for (int c=0; c<board.length;c++)
+            gol3.board[c] = applyRuleToCell(board[c], gol2.board[c]);
+        return gol3;
+    }
+
+    
 }

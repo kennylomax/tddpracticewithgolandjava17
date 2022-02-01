@@ -3,7 +3,6 @@ package com.tdd.practice.gol;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Tag;
@@ -42,7 +41,6 @@ public class BehaviouralTests {
 		assertEquals( board, gol.getBoard());
     }
 
-    @Disabled
     @Order(3)    
     @ParameterizedTest(name = "A GOL board with {0} should evolve to {1}")
 	@CsvSource({
@@ -52,11 +50,12 @@ public class BehaviouralTests {
 	void testGOLEvolution(String cells, String board){
         int edge = (int)Math.sqrt(cells.length());
         GOL gol = new GOL(edge, cells);
-		//gol=gol.evolve();
+		gol=gol.evolve();
 		assertEquals(  board, gol.getBoard() );
 	}   
 
     /** 
+        ==========================
         mvn test -Dgroups=internal
         java -jar junit-platform-console-standalone-1.8.0-M1.jar -cp target/test-classes -cp target/classes --scan-classpath   --include-tag=internal
     */
