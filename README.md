@@ -1,4 +1,4 @@
-# Test Driven Development Practice - Workshop with Ken Lomax 
+# Test Driven Development Workshop with Ken Lomax 
 
 Test Driven Development claims to : 
 * **Reduce Hacking** & going down **Rabbit Holes**
