@@ -21,13 +21,37 @@ In short it is important stuff, that should be in your skill set :)
   - mvn test, or
   - java -jar junit-platform-console-standalone-1.8.0-M1.jar -cp target/test-classes -cp target/classes --scan-classpath
 
-You will see 100% Test Coverage
+# You will see 100% Test Coverage
 <img width="927" alt="codecov" src="https://user-images.githubusercontent.com/6401254/154978731-3702e708-6e06-4a70-85be-745148cc6c22.png">
 
-and a really nice summary of the behaviour of the component under test:
+# A BDD (Behvioural Driven Developement) Suite of Tests
+Carefully crafter BDD Tests keep everyone happy: the Coder, the PO, the Tech Writers, QA..
 <img width="668" alt="Screenshot 2022-02-21 at 15 44 34" src="https://user-images.githubusercontent.com/6401254/154977325-f758c06c-50a3-4b20-8a73-be612b6d91cc.png">
 
-## To see how this was developed with BDD and TDD..
+## PO and Coders come up with expected behaviour..
+Our task is to develop this game with minimal hacking, good test coverage and good intermediate status reports. Here are the initial requirements following a discussion with the PO:
+
+- To talk about cells, we will use coordinate system,
+
+  <img width="189" alt="Screenshot 2022-02-21 at 15 45 34" src="https://user-images.githubusercontent.com/6401254/154979147-351d7550-9734-4a2e-8378-f75cc413e5eb.png">
+  
+- How to display in console?
+0-0-0-0-0
+0-0-0-0-0
+0-1-1-1-0
+0-0-0-0-0
+0-0-0-0-0
+- How to populate?
+  - Let us have some flexibility
+  ```
+     00000 00000 01110 00000 00000
+     - -  01110 - -
+     0000000000011100000000000
+  ```
+- What happens at the edges?
+  - we will wrap around
+
+## Our task is to develop this with 100% Test Coverage and with a clear BDD Test Suite to guide development
 
 - Review checkout history: git log --oneline
 <img width="507" alt="Screenshot 2022-02-21 at 15 47 37" src="https://user-images.githubusercontent.com/6401254/154977884-f2af9157-eac1-4a3b-8ad0-01a2e1b42dc4.png">
@@ -102,23 +126,5 @@ Game of Life features a matrix of live and dead cells..
 <img width="132" alt="Screenshot 2022-02-21 at 15 45 24" src="https://user-images.githubusercontent.com/6401254/154978967-7b8bd6c6-ad6c-46ac-bec4-dfe1dc03b366.png">
 
   
-Our task is to develop this game with minimal hacking, good test coverage and good intermediate status reports. Here are the initial requirements following a discussion with the PO:
 
-- To talk about cells, we will use coordinate system,
-
-  <img width="189" alt="Screenshot 2022-02-21 at 15 45 34" src="https://user-images.githubusercontent.com/6401254/154979147-351d7550-9734-4a2e-8378-f75cc413e5eb.png">
-  
-- How to display in console?
-0-0-0-0-0
-0-0-0-0-0
-0-1-1-1-0
-0-0-0-0-0
-0-0-0-0-0
-- How to populate?
-  - Let us have some flexibility
-    - 00000 00000 01110 00000 00000
-    - - - 01110 - -
-    - 0000000000011100000000000
-- What happens at the edges?
-  - we will wrap around
   
